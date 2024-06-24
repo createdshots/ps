@@ -19,8 +19,6 @@ if ($fileType -eq "csv") {
 }
 
 foreach ($email in $emails) {
-    New-MailContact -Name $email -ExternalEmailAddress $email
-    
     Add-DistributionGroupMember -Identity $distributionList -Member $email
 
     Write-Host "Added $email to $distributionList"
