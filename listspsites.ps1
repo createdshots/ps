@@ -1,8 +1,9 @@
+# This will list all SharePoint sites in a SharePoint Online tenant
 
 Import-Module Microsoft.Online.SharePoint -DisableNameChecking
 
 # Connect to SharePoint Online
-Connect-SPOService -Url "https://hspg1-admin.sharepoint.com"
+Connect-SPOService -Url "https://site.sharepoint.com"
 
 # Get all SharePoint sites
 $sites = Get-SPOSite

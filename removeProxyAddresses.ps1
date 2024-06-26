@@ -1,3 +1,5 @@
+# Remove all proxy addresses from all security groups in the current domain.
+
 Import-Module ActiveDirectory
 
 $groups = Get-ADGroup -Filter {GroupCategory -eq 'Security'}

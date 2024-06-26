@@ -1,7 +1,9 @@
+# Ensure you are already connected to Active Directory before running this script
+
 Import-Module ActiveDirectory
 
-$sourceUser = "rachael.thomas@birmingham-rep.co.uk"
-$destinationUser = "destination_user"
+$sourceUser = Read-Host "Enter the source user's UserPrincipalName"
+$destinationUser = Read-Host "Enter the destination user's UPN"
 
 $sourceUserObj = Get-ADUser -Filter "UserPrincipalName -eq '$sourceUser'" -Properties MemberOf
 

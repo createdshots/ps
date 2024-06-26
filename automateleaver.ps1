@@ -1,4 +1,4 @@
-# Automate Leaver Process
+# Automate Leaver Process - NOT COMPLETE
 
 param(
     [Parameter(Mandatory=$true)]

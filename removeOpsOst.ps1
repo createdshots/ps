@@ -1,4 +1,6 @@
-﻿$profileFolder = [Environment]::GetFolderPath("UserProfile")
+﻿# Remove the largest OST file from the current user's Outlook folder
+
+$profileFolder = [Environment]::GetFolderPath("UserProfile")
 
 $outlookFolder = Join-Path -path $profileFolder -ChildPath "AppData\Local\Microsoft\Outlook"
 

@@ -1,3 +1,5 @@
+# Script to change the background of a machine automatically, for use with Intune
+
 $bgImagePath = "C:\bg\background.png"
 
 Set-ItemProperty -Path "HKCU:\Control Panel\Desktop" -Name "Wallpaper" -Value $bgImagePath

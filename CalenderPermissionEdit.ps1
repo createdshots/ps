@@ -1,5 +1,5 @@
 ﻿<#
-Created by Jack Tolley - 04/11/2023 - 1.6
+Created by Jack Tolley - 04/11/2023 - 2.1
 #>
 
 # Check if the script is running as administrator

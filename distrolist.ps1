@@ -1,3 +1,5 @@
+# This will output all the email addresses and the distribution groups they are a part of, ensure you are already connected to ExchangeOnline
+
 $output_file = "user_distribution_groups1.csv"
 
 # Get all distribution groups

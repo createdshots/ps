@@ -1,11 +1,13 @@
+# Automatically remove the user from the Office 365 tenant, convert the mailbox to a shared mailbox, hide it from the address list, and remove any licenses assigned to the user.
+
 $emailAddresses = @("")
 
 Import-Module MSOnline
-Import-Module Microsoft.Graph
+Import-Module Microsoft.Graph.Authentication
 
 try {
     Connect-MsolService -ErrorAction Stop
-    Connect-ExchangeOnline -UserPrincipalName "localadmin@2rhm70.onmicrosoft.com" -ErrorAction Stop
+    Connect-ExchangeOnline -ErrorAction Stop
     Connect-MgGraph
 }
 

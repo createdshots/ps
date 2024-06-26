@@ -1,3 +1,5 @@
+# this script was made to automatically move default font files, this is complicated to explain but if you really want to know, message me lol
+
 Set-Location $PSScriptRoot
 
 # Get the current user
