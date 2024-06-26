@@ -1,3 +1,5 @@
+# Group Add script - so you can add a list of emails to a distribution list, from a CSV or TXT file - if it is a csv file you need to have a column called Email
+# and if it is a txt file you need to have one email per line.
 
 Import-Module ExchangeOnlineManagement
 
