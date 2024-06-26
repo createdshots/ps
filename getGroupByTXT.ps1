@@ -1,3 +1,36 @@
+<# ##############
+Add group by reading a .txt file containing group and member information, and then add the members to their respective groups in Azure AD. Here's a guide on how to use this script:
+
+Open a PowerShell console or terminal.
+
+Navigate to the directory where the script is saved.
+
+Run the script by executing the following command:
+.\getGroupByTXT.ps1
+
+The script will prompt you to enter the location of the .txt file. Provide the full path to the .txt file and press Enter.
+
+The script will parse the file and display the changes that will be made. It will show the groups and their respective members.
+
+Confirm whether you want to proceed with the changes by entering 'y' or 'n' when prompted.
+
+If you choose to proceed, the script will add the users to their respective groups in Azure AD. It will display the status of each operation, indicating whether the user was successfully added or if there was an error.
+
+The .TXT file should be formatted as:
+GROUP: Group1
+User1
+User2
+User3
+
+GROUP: Group2
+User1
+User4
+User5
+
+etc...
+
+############## #>
+
 $filePath = Read-Host "Enter the location of the .txt file:"
 
 $lines = Get-Content $filePath
