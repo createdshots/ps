@@ -1,3 +1,11 @@
+# This script will automatically copy all groups from one user to another in Azure AD.
+
+# Ensure you have AzureAD installed
+
+Import-Module AzureAD
+
+Connect-AzureAD
+
 $sourceUser = Read-Host "Enter the source user's email address: "
 $sourceUserGroups = Get-AzureADUserMembership -ObjectId $sourceUser | Where-Object {$_.ObjectType -eq "Group"}
 
