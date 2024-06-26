@@ -1,4 +1,4 @@
-﻿Connect-HVServer -Server desktopsx.ashmere.co.uk -User ashmerederbys\administrator -Password Tun4F1sh!2020 -Force
+﻿Connect-HVServer -Server desktopsx.ashmere.co.uk -User ashmerederbys\administrator -Password -Force
 Connect-VIServer -Server hovcenter.ashmerederbys.local -Force
 $VMs = Get-HVMachineSummary | Select *
 foreach ($VM In $VMs) {
