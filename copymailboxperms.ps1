@@ -1,3 +1,15 @@
+<#
+
+this script will ask for a source mailbox and a target mailbox and copy the permissions from the source to the target in case a client is looking to duplicate the permissions from a specific mailbox using ExchangeOnlineManagement
+ 
+You will need PowerShell 7 to run this!
+Install the script
+Open PowerShell 7
+CD to the folder the script is saved in and run it as normal (.\copymailboxperms.ps1)
+the rest is pretty much self explanatory! (source is the mailbox copying from -> target is mailbox you're copying to)
+
+#>
+
 Import-Module ExchangeOnlineManagement
 
 Write-Host "Connecting to Exchange Online..."
