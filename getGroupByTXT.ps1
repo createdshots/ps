@@ -30,14 +30,12 @@ foreach ($group in $users.Keys) {
     }
 }
 
-# Confirm and proceed with changes
 $confirmation = Read-Host "Do you want to continue with these changes? (y/n)"
 if ($confirmation -ne 'y') {
     Write-Host "Operation cancelled by the user."
     return
 }
 
-# Add users to groups
 foreach ($group in $users.Keys) {
     $groupObjectId = (Get-AzureADGroup -Filter "DisplayName eq '$group'").ObjectId
     if (-not $groupObjectId) {
