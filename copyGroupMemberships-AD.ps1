@@ -5,14 +5,35 @@ Import-Module ActiveDirectory
 $sourceUser = Read-Host "Enter the source user's UserPrincipalName"
 $destinationUser = Read-Host "Enter the destination user's UPN"
 
-$sourceUserObj = Get-ADUser -Filter "UserPrincipalName -eq '$sourceUser'" -Properties MemberOf
+try {
+    $sourceUserObj = Get-ADUser -Filter "UserPrincipalName -eq '$sourceUser'" -Properties MemberOf -ErrorAction Stop
+    Write-Output "Source user found: $($sourceUserObj.Name)"
+} catch {
+    Write-Error "Failed to find source user: $_"
+    exit
+}
+
+if ($sourceUserObj.MemberOf -eq $null -or $sourceUserObj.MemberOf.Count -eq 0) {
+    Write-Output "No group memberships found for source user."
+    exit
+} else {
+    Write-Output "Found $($sourceUserObj.MemberOf.Count) group(s) for source user."
+}
 
 $sourceUserGroups = $sourceUserObj.MemberOf
 
-$destinationUserObj = Get-ADUser -Identity $destinationUser
-
-foreach ($group in $sourceUserGroups) {
-    Add-ADGroupMember -Identity $group -Members $destinationUserObj
+try {
+    $destinationUserObj = Get-ADUser -Filter "UserPrincipalName -eq '$destinationUser'" -ErrorAction Stop
+} catch {
+    Write-Error "Failed to find destination user: $_"
+    exit
 }
 
-$destinationUserObj | Get-ADUser -Properties MemberOf | Select-Object -ExpandProperty MemberOf
+foreach ($group in $sourceUserGroups) {
+    try {
+        Add-ADGroupMember -Identity $group -Members $destinationUserObj -ErrorAction Stop
+        Write-Output "Added $($destinationUserObj.SamAccountName) to group: $group"
+    } catch {
+        Write-Error "Failed to add to group: $_"
+    }
+}

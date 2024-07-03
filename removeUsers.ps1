@@ -16,8 +16,6 @@ catch {
     return
 }
 
-# Rest of your script...
-
 foreach ($email in $emailAddresses) {
 
     $user = Get-MsolUser -UserPrincipalName $email
