@@ -4,10 +4,9 @@ Connect-ExchangeOnline
 
 $csvFilePath = Read-Host "Enter the path to the CSV file containing the email addresses to block"
 
-$emails = Import-Csv -Path $csvFilePath | Select-Object -ExpandProperty Email
+$emails = Get-Content -Path $csvFilePath
 
-$emails | ForEach-Object {
-    $email = $_
+foreach ($email in $emails) {
     New-TenantAllowBlockListItems -ListType Sender -Block -Entries $email
 }
 
